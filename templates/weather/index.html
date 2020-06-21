@@ -26,6 +26,8 @@
 
 <body>
     {% block content %}
+    {% if user.is_authenticated %}
+
     {% csrf_token %}
     <section class="hero is-primary">
         <div class="hero-body">
@@ -89,6 +91,14 @@
     <footer class="footer">
     </footer>
 
+    {% else %}
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <p class="display-4">Hello There</p>
+            <p class="lead">Please signin or signup to view the weather information.</p>
+        </div>
+    </div>
+    {% endif %}
     {% endblock content %}
 </body>
 
