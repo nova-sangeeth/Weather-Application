@@ -1,7 +1,9 @@
-from django.urls import path
-from .import views
+from django.conf.urls import url
+
+from .views import index, delete
 
 urlpatterns = [
-    path('', views.index),
-    # path('delete/<int:id>', views.delete)
+    url(r"^$", index, name="index"),
+    url(r"^delete/(?P<pk>\d+)$", delete, name="delete"),
 ]
+
